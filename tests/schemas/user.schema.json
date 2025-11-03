@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "joined_at": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "email",
+    "joined_at"
+  ]
+}

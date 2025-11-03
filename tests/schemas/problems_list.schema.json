@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "properties": {
+    "user_name": {
+      "type": "string"
+    },
+    "num_solved": {
+      "type": "integer"
+    },
+    "num_total": {
+      "type": "integer"
+    },
+    "recently_solved": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": [
+              "Easy",
+              "Medium",
+              "Hard"
+            ]
+          },
+          "timestamp": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "title",
+          "difficulty",
+          "timestamp"
+        ]
+      }
+    }
+  },
+  "required": [
+    "user_name",
+    "num_solved",
+    "num_total",
+    "recently_solved"
+  ]
+}

@@ -1,0 +1,15 @@
+pytest==8.2.2
+requests==2.32.3
+jsonschema==4.23.0
+pydantic==2.8.2
+python-dotenv==1.0.1
+faker==25.0.0
+allure-pytest==2.13.5
+schemathesis==3.33.3
+rich==13.9.2
+ruff==0.6.9
+black==24.8.0
+isort==5.13.2
+uvicorn==0.30.6
+fastapi==0.115.5
+PyYAML==6.0.2

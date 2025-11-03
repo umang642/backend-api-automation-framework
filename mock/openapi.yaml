@@ -1,0 +1,61 @@
+openapi: 3.0.3
+info: { title: LeetCode-like API, version: "1.0.0" }
+servers: [ { url: http://127.0.0.1:8000 } ]
+paths:
+  /health:
+    get:
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: object, properties: { status: { type: string } }, required: [status] } } } }
+  /problems:
+    get:
+      responses:
+        '200':
+          description: Problems stats + recent
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [user_name, num_solved, num_total, recently_solved]
+                properties:
+                  user_name: { type: string }
+                  num_solved: { type: integer }
+                  num_total: { type: integer }
+                  recently_solved:
+                    type: array
+                    items:
+                      type: object
+                      required: [title, difficulty, timestamp]
+                      properties:
+                        title: { type: string }
+                        difficulty: { type: string, enum: [Easy, Medium, Hard] }
+                        timestamp: { type: string, format: date-time }
+  /users/{id}:
+    get:
+      parameters:
+        - in: path
+          name: id
+          schema: { type: integer }
+          required: true
+      responses:
+        '200':
+          description: A user
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [id, name, email, joined_at]
+                properties:
+                  id: { type: integer }
+                  name: { type: string }
+                  email: { type: string }
+                  joined_at: { type: string, format: date-time }
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [error_code, message]
+                properties:
+                  error_code: { type: string }
+                  message: { type: string }
